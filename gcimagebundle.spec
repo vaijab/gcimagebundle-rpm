@@ -1,16 +1,12 @@
-%define name gcimagebundle
-%define version 1.1.0
-%define unmangled_version 1.1.0
-%define release 1
+%global name gcimagebundle
+%global version 1.1.0
+%global unmangled_version 1.1.0
+%global release 1
 
 Summary: Image bundling tool for root file system.
-Name: %{name}
-Version: %{version}
 Release: %{release}
 Source0: %{name}-%{unmangled_version}.tar.gz
 License: Apache 2.0
-Group: Development/Libraries
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  python2-devel >= 2.4, python-setuptools
 Prefix: %{_prefix}
 BuildArch: noarch
@@ -34,8 +30,4 @@ python setup.py build
 %install
 python setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files -f INSTALLED_FILES
-%defattr(-,root,root)
